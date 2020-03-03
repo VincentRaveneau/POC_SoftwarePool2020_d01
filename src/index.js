@@ -46,7 +46,11 @@ function startServer() {
     const tableau_key = Object.keys(req.query);
     var tableau = []; 
     for (const mescouilles in tableau_key) {
-      tableau.push(tableau_key[mescouilles]);
+      const value =req.query[tableau_key[mescouilles]];
+      tableau.push({
+        "key": tableau_key[mescouilles],
+        "value": value
+      });
   }
   res.send(tableau);
   });
