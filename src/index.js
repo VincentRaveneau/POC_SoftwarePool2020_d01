@@ -42,6 +42,15 @@ function startServer() {
   app.get('/repeat-my-param/:message', (req, res) => {
     res.send(req.params.message);
   });
+  app.get('/repeat-all-my-queries', (req, res) => {
+    const tableau_key = Object.keys(req.query);
+    var tableau = []; 
+    for (const mescouilles in tableau_key) {
+      tableau.push(tableau_key[mescouilles]);
+  }
+  res.send(tableau);
+  });
   app.listen(server_port);
+  console.log('Ready.');
 }
 startServer();
